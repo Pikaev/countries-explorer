@@ -20,6 +20,34 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Branch naming
+
+`PRJCE` — project code for **Countries Explorer**.
+
+```
+PRJCE/<type>/<scope>-<short-description>
+```
+
+| Part | Values |
+|------|--------|
+| `type` | `feat`, `fix`, `chore`, `docs`, `test`, `refactor` |
+| `scope` | `layout`, `page`, `search`, `store`, `countries`, `e2e`, `ci`, `docs`, `phase-1`, `phase-2`, `phase-3` |
+
+Examples:
+
+```
+PRJCE/chore/layout-metadata-and-fonts
+PRJCE/feat/phase-2-search-zustand
+PRJCE/fix/error-boundary-placement
+PRJCE/test/e2e-search-flow
+```
+
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/) without the `PRJCE` prefix:
+
+```
+feat(search): add debounced filter with Zustand store
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
