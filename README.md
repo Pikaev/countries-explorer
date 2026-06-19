@@ -25,21 +25,28 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 `PRJCE` — project code for **Countries Explorer**.
 
 ```
-PRJCE/<type>/<scope>-<short-description>
+PRJCE[-<phase>]/<type>/<scope>-<short-description>
 ```
 
 | Part | Values |
 |------|--------|
+| `phase` | `1`, `2`, `3` — номер фазы из ТЗ (опционально) |
 | `type` | `feat`, `fix`, `chore`, `docs`, `test`, `refactor` |
-| `scope` | `layout`, `page`, `search`, `store`, `countries`, `e2e`, `ci`, `docs`, `phase-1`, `phase-2`, `phase-3` |
+| `scope` | `layout`, `page`, `search`, `store`, `countries`, `e2e`, `ci`, `docs` |
+
+**Правила:**
+- `PRJCE-1`, `PRJCE-2`, `PRJCE-3` — работа из соответствующей фазы ТЗ (несколько веток на фазу — норма).
+- `PRJCE` без номера — инфраструктура и задачи вне фаз (деплой, CI, общий README).
 
 Examples:
 
 ```
-PRJCE/chore/layout-metadata-and-fonts
-PRJCE/feat/phase-2-search-zustand
-PRJCE/fix/error-boundary-placement
-PRJCE/test/e2e-search-flow
+PRJCE-1/chore/layout-metadata-and-fonts
+PRJCE-1/chore/loading-skeleton
+PRJCE-2/feat/search-debounce
+PRJCE-2/feat/zustand-store
+PRJCE-3/feat/country-detail-isr
+PRJCE/chore/vercel-deploy
 ```
 
 Commits follow [Conventional Commits](https://www.conventionalcommits.org/) without the `PRJCE` prefix:
