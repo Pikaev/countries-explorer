@@ -20,6 +20,41 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Branch naming
+
+`PRJCE` — project code for **Countries Explorer**.
+
+```
+PRJCE[-<phase>]/<type>/<scope>-<short-description>
+```
+
+| Part | Values |
+|------|--------|
+| `phase` | `1`, `2`, `3` — номер фазы из ТЗ (опционально) |
+| `type` | `feat`, `fix`, `chore`, `docs`, `test`, `refactor` |
+| `scope` | `layout`, `page`, `search`, `store`, `countries`, `e2e`, `ci`, `docs` |
+
+**Правила:**
+- `PRJCE-1`, `PRJCE-2`, `PRJCE-3` — работа из соответствующей фазы ТЗ (несколько веток на фазу — норма).
+- `PRJCE` без номера — инфраструктура и задачи вне фаз (деплой, CI, общий README).
+
+Examples:
+
+```
+PRJCE-1/chore/layout-metadata-and-fonts
+PRJCE-1/chore/loading-skeleton
+PRJCE-2/feat/search-debounce
+PRJCE-2/feat/zustand-store
+PRJCE-3/feat/country-detail-isr
+PRJCE/chore/vercel-deploy
+```
+
+Commits follow [Conventional Commits](https://www.conventionalcommits.org/) without the `PRJCE` prefix:
+
+```
+feat(search): add debounced filter with Zustand store
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
