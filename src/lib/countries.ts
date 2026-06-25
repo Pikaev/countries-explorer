@@ -14,7 +14,7 @@ export async function fetchCountries(): Promise<Country[]> {
     'https://studies.cs.helsinki.fi/restcountries/api/all',
     {
       next: { revalidate: 3600 },
-    }
+    },
   )
 
   if (!res.ok) {
