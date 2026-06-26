@@ -2,6 +2,7 @@ export interface Country {
   name: {
     common: string
   }
+  region: string
   cca3: string
   population: number
   flags: {
