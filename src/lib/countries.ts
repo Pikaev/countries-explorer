@@ -1,14 +1,18 @@
-export interface Country {
-  name: {
-    common: string
-  }
-  region: string
-  cca3: string
-  population: number
-  flags: {
-    svg: string
-  }
-}
+import z from 'zod'
+
+const CountrySchema = z.object({
+  name: z.object({
+    common: z.string(),
+  }),
+  region: z.string(),
+  cca3: z.string(),
+  population: z.number(),
+  flags: z.object({
+    svg: z.string(),
+  }),
+})
+
+export type Country = z.infer<typeof CountrySchema>
 
 export async function fetchCountries(): Promise<Country[]> {
   const res = await fetch(
@@ -28,5 +32,5 @@ export async function fetchCountries(): Promise<Country[]> {
     throw new Error('API returned non-array data')
   }
 
-  return data as Country[]
+  return z.array(CountrySchema).parse(data)
 }
