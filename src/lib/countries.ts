@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import z from 'zod'
 
 const CountrySchema = z.object({
@@ -10,6 +11,10 @@ const CountrySchema = z.object({
   flags: z.object({
     svg: z.string(),
   }),
+  capital: z.array(z.string()).optional(),
+  subregion: z.string().optional(),
+  languages: z.record(z.string(), z.string()).optional(),
+  area: z.number().optional(),
 })
 
 export type Country = z.infer<typeof CountrySchema>
@@ -33,4 +38,15 @@ export async function fetchCountries(): Promise<Country[]> {
   }
 
   return z.array(CountrySchema).parse(data)
+}
+
+export async function fetchCountry(code: string): Promise<Country> {
+  const countries = await fetchCountries()
+  const country = countries.find((c) => c.cca3 === code)
+
+  if (!country) {
+    notFound()
+  }
+
+  return country!
 }
